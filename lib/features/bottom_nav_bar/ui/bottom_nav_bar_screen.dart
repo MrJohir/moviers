@@ -17,21 +17,6 @@ class BottomNavbarScreen extends StatelessWidget {
     SearchScreen(),
     AccountsScreen(),
   ];
-
-  // final List<String> activeIcons = [
-  //   ImagePath.home1,
-  //   ImagePath.booking1,
-  //   ImagePath.message1,
-  //   ImagePath.profile1,
-  // ];
-  //
-  // final List<String> inactiveIcons = [
-  //   ImagePath.home2,
-  //   ImagePath.booking2,
-  //   ImagePath.message2,
-  //   ImagePath.profile2,
-  // ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,6 +33,8 @@ class BottomNavbarScreen extends StatelessWidget {
           ),
           child: NavigationBar(
             elevation: 9,
+            shadowColor: Colors.red,
+            // surfaceTintColor: Color(0xff404040),
             indicatorColor: Color(0xff0A0A0A),
             backgroundColor: Color(0xff0A0A0A),
             selectedIndex: controller.selectedIndex.value,

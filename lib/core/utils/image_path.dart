@@ -9,4 +9,5 @@ class ImagePath {
   static const String index2 = '$_imageBaseUrl/index2.png';
   static const String index3 = '$_imageBaseUrl/index3.png';
   static const String index4 = '$_imageBaseUrl/index4.png';
+  static const String warsStory = '$_imageBaseUrl/warsStory.png';
 }
