@@ -37,7 +37,7 @@ class OtpVerification extends StatelessWidget {
                   onPressed:
                       controller.isOtp.value
                           ? () {
-                            Get.offAll(() => Personalization());
+                            Get.to(() => Personalization());
                           }
                           : null,
                   text: 'Verify',

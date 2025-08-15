@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:moviers/core/utils/image_path.dart';
+import 'package:moviers/features/Personalization/ui/screens/Personalization.dart';
 import 'package:moviers/features/auth/controller/auth_controller.dart';
 import 'package:moviers/features/auth/ui/screens/register_screen.dart';
 import '../widget/auth_appbar.dart';
@@ -71,7 +72,9 @@ class LoginScreen extends StatelessWidget {
 
               Obx(()=>
                  CoustomaButton(
-                  onPressed: controller.isEmailLogin.value ? () {} : null,
+                  onPressed: controller.isEmailLogin.value ? () {
+                    Get.to(()=>Personalization());
+                  } : null,
                   text: 'Login',
                   style: TextStyle(
                     fontSize: 16,

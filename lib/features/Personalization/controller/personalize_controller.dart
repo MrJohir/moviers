@@ -12,4 +12,17 @@ class PersonalizeController extends GetxController {
     ImagePath.index2,
   ];
 
+
+  RxList<bool> selectedItems = <bool>[].obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+    selectedItems.value = List.generate(gridViewItem.length, (_) => false);
+  }
+
+  void toggleSelection(int index) {
+    selectedItems[index] = !selectedItems[index];
+  }
+
 }
