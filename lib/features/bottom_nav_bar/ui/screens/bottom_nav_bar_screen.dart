@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../home/ui/screens/home_screen.dart';
+import '../../controller/bottom_nav_controller.dart';
 import 'demo_empty_screen/accounts_screen.dart';
 import 'demo_empty_screen/search_screen.dart';
 import 'demo_empty_screen/watchlist_screen.dart';
-import '../../home/ui/home_screen.dart';
-import '../controller/bottom_nav_controller.dart';
 
 class BottomNavbarScreen extends StatelessWidget {
   BottomNavbarScreen({super.key});
@@ -64,7 +64,7 @@ class BottomNavbarScreen extends StatelessWidget {
               ),
               NavigationDestination(
                 icon: Icon(
-                  Icons.search,
+                  Icons.search_sharp,
                   color:
                       controller.selectedIndex.value == 2
                           ? Color(0xff298CFF)

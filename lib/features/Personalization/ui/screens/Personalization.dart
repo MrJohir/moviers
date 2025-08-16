@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:moviers/features/auth/ui/widget/coustom_button.dart';
 import '../../../auth/ui/widget/auth_appbar.dart';
-import '../../../bottom_nav_bar/ui/bottom_nav_bar_screen.dart';
+import '../../../bottom_nav_bar/ui/screens/bottom_nav_bar_screen.dart';
 import '../../controller/personalize_controller.dart';
 
 class Personalization extends StatelessWidget {
