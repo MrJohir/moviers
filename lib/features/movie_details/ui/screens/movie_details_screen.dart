@@ -45,12 +45,9 @@ class MovieDetailsScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-
-                  // Top navigation
                   Positioned(
                     top: MediaQuery.of(context).padding.top + 18,
                     left: 10,
-
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: CircleAvatar(

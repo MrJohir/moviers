@@ -232,7 +232,7 @@ class MovieDescription extends StatelessWidget {
               padding: const EdgeInsets.only(top: 58, bottom: 16),
               child: CoustomaButton(
                 onPressed: () {
-                  Get.to(()=>MandalorianPage());
+                  Get.to(()=>SeriesDetailsScreen());
                 },
                 text: 'Start your 14-days trial',
                 style: TextStyle(fontSize: 16, color: Color(0xffFFFFFF)),
