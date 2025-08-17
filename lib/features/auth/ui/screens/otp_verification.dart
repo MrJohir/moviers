@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:moviers/features/auth/controller/auth_controller.dart';
+import 'package:moviers/features/auth/ui/screens/login_screen.dart';
 import 'package:moviers/features/auth/ui/widget/terms_condition.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-import '../../../Personalization/ui/screens/Personalization.dart';
 import '../widget/auth_appbar.dart';
 import '../widget/coustom_button.dart';
 
@@ -37,7 +37,7 @@ class OtpVerification extends StatelessWidget {
                   onPressed:
                       controller.isOtp.value
                           ? () {
-                            Get.to(() => Personalization());
+                            Get.to(() => LoginScreen());
                           }
                           : null,
                   text: 'Verify',

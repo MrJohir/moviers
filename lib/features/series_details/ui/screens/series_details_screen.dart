@@ -198,7 +198,7 @@ class SeriesDetailsScreen extends StatelessWidget {
                     () => SizedBox(
                       width: double.infinity,
                       child: ElevatedButton.icon(
-                        onPressed: controller.continueWatching,
+                        onPressed: (){},
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Color(0xff2196F3),
                           padding: EdgeInsets.symmetric(vertical: 16),

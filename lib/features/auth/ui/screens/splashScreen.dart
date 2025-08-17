@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:moviers/core/utils/image_path.dart';
-import '../../controller/auth_controller.dart';
+import '../../controller/splash_controller.dart';
 
 class Splashscreen extends StatelessWidget {
    Splashscreen({super.key});
-  final AuthController controller = Get.put(AuthController());
+  final SplashController controller = Get.put(SplashController());
 
   @override
   Widget build(BuildContext context) {

@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:moviers/core/utils/image_path.dart';
 import 'package:moviers/features/Personalization/ui/screens/Personalization.dart';
 import 'package:moviers/features/auth/controller/auth_controller.dart';
+import 'package:moviers/features/auth/ui/screens/otp_verification.dart';
 import 'package:moviers/features/auth/ui/screens/register_screen.dart';
 import '../widget/auth_appbar.dart';
 import '../widget/coustom_button.dart';
@@ -15,7 +16,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AuthAppBar(text: 'Login',),
+      appBar: AuthAppBar(text: 'Login'),
       backgroundColor: Color(0xff0A0A0A),
       body: SingleChildScrollView(
         child: Padding(
@@ -38,26 +39,22 @@ class LoginScreen extends StatelessWidget {
               CoustomTextField(
                 controller: controller.emailController,
                 text: 'Email',
-                prefixIcon: Icon(
-                  Icons.email,
-                  weight: 16,
-                ),
+                prefixIcon: Icon(Icons.email, weight: 16),
                 onChanged: controller.onEmailChanged,
               ),
               CoustomTextField(
                 controller: controller.passWordController,
                 text: 'Password',
-                prefixIcon: Icon(
-                  Icons.lock,
-                  weight: 16,
-                ),
+                prefixIcon: Icon(Icons.lock, weight: 16),
               ),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(() => OtpVerification());
+                    },
                     child: Text(
                       'Forgot Password?',
                       style: TextStyle(
@@ -70,16 +67,22 @@ class LoginScreen extends StatelessWidget {
                 ],
               ),
 
-              Obx(()=>
-                 CoustomaButton(
-                  onPressed: controller.isEmailLogin.value ? () {
-                    Get.to(()=>Personalization());
-                  } : null,
+              Obx(
+                () => CoustomaButton(
+                  onPressed:
+                      controller.isEmailLogin.value
+                          ? () {
+                            Get.offAll(() => Personalization());
+                          }
+                          : null,
                   text: 'Login',
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w400,
-                    color: controller.isEmailLogin.value? Colors.white : Color(0xff757575),
+                    color:
+                        controller.isEmailLogin.value
+                            ? Colors.white
+                            : Color(0xff757575),
                   ),
                   backgroundColor:
                       controller.isEmailLogin.value
@@ -149,9 +152,11 @@ class LoginScreen extends StatelessWidget {
                             fontWeight: FontWeight.w500,
                             color: Color(0xff298CFF),
                           ),
-                          recognizer: TapGestureRecognizer()..onTap = () {
-                            Get.to(()=> RegisterScreen());
-                          },
+                          recognizer:
+                              TapGestureRecognizer()
+                                ..onTap = () {
+                                  Get.to(() => RegisterScreen());
+                                },
                         ),
                       ],
                     ),

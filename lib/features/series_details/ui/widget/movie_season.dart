@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../controller/series_details_controller.dart';
+import '../screens/video_player_screen.dart';
 
 class MovieSeason extends StatelessWidget {
   const MovieSeason({super.key, required this.controller});
@@ -38,7 +40,14 @@ class MovieSeason extends StatelessWidget {
               itemBuilder: (context, index) {
                 final episode = controller.season1Episodes[index];
                 return GestureDetector(
-                  // onTap: () => playEpisode(episode),
+                  onTap: () {
+                    Get.to(
+                      () => VideoPlayerScreen(
+                        episodes: controller.season1Episodes,
+                        initialIndex: index,
+                      ),
+                    );
+                  },
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 16),
                     child: Row(
@@ -55,43 +64,17 @@ class MovieSeason extends StatelessWidget {
                             child: Stack(
                               children: [
                                 Image.network(
-                                  episode['thumbnail'],
+                                  "https://picsum.photos/200/300?random=$index",
                                   width: double.infinity,
                                   height: double.infinity,
                                   fit: BoxFit.cover,
-                                  errorBuilder: (context, error, stackTrace) {
-                                    return Container(
-                                      color: Color(0xff2A2A2A),
-                                      child: Center(
-                                        child: Icon(
-                                          Icons.play_circle_outline,
-                                          size: 30,
-                                          color: Color(0xff666666),
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                ),
-                                Container(
-                                  decoration: BoxDecoration(
-                                    gradient: LinearGradient(
-                                      begin: Alignment.topCenter,
-                                      end: Alignment.bottomCenter,
-                                      colors: [
-                                        Colors.transparent,
-                                        Colors.black.withValues(alpha: 0.3),
-                                      ],
-                                    ),
-                                  ),
                                 ),
                                 Center(
                                   child: Container(
                                     width: 35,
                                     height: 35,
                                     decoration: BoxDecoration(
-                                      color: Colors.black.withValues(
-                                        alpha: 0.6,
-                                      ),
+                                      color: Colors.black.withOpacity(0.6),
                                       shape: BoxShape.circle,
                                     ),
                                     child: Icon(
@@ -105,23 +88,17 @@ class MovieSeason extends StatelessWidget {
                             ),
                           ),
                         ),
-
                         SizedBox(width: 16),
                         Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                episode['title'],
-                                style: TextStyle(
-                                  color: Color(0xffFFFFFF),
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                                maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ],
+                          child: Text(
+                            episode['title'],
+                            style: TextStyle(
+                              color: Color(0xffFFFFFF),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400,
+                            ),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
                           ),
                         ),
                       ],

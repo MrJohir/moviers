@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:moviers/features/auth/controller/auth_controller.dart';
+import 'package:moviers/features/auth/ui/screens/login_screen.dart';
 import 'package:moviers/features/auth/ui/widget/auth_appbar.dart';
 import 'package:moviers/features/auth/ui/widget/coustomar_textField.dart';
 import '../../../../core/utils/image_path.dart';
 import '../widget/coustom_button.dart';
 import '../widget/terms_condition.dart';
-import 'otp_verification.dart';
 
 class RegisterScreen extends StatelessWidget {
   RegisterScreen({super.key});
@@ -61,7 +61,7 @@ class RegisterScreen extends StatelessWidget {
               Obx(
                 () => CoustomaButton(
                   onPressed: controller.isEmailRegister.value ? () {
-                    Get.to(()=> OtpVerification());
+                    Get.to(()=> LoginScreen());
                   } : null,
                   text: 'Create Account',
                   style: TextStyle(

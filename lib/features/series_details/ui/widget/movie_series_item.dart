@@ -19,7 +19,7 @@ class MovieSeriesItem extends StatelessWidget {
             width: 280,
             margin: EdgeInsets.only(right: 10),
             child: GestureDetector(
-              onTap: () => controller.playEpisode(episode),
+              onTap: () {},
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
