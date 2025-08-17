@@ -61,7 +61,6 @@ class Personalization extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return Obx(() {
                     bool isSelected = controller.selectedItems[index];
-
                     return SizedBox(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -117,7 +116,6 @@ class Personalization extends StatelessWidget {
                             ),
                           ),
                           Row(
-                            // mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Icon(
                                 Icons.people_outline,

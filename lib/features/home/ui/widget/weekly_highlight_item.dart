@@ -7,7 +7,6 @@ class WeeklyHighlightItem extends StatelessWidget {
   });
 
   final Map<String, String> movie;
-
   @override
   Widget build(BuildContext context) {
     return Column(

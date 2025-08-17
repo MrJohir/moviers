@@ -10,7 +10,7 @@ class Moviers extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/loginScreen',
+      initialRoute: '/splashScreens',
     getPages: AppRoute.routes,
     );
   }

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class SeriesDetailsController extends GetxController {
@@ -28,11 +29,11 @@ class SeriesDetailsController extends GetxController {
   var watchProgress = 0.7.obs;
 
   void continueWatching() {
-    print("Continuing to watch ${currentEpisode.value}");
+    debugPrint("Continuing to watch ${currentEpisode.value}");
   }
 
   void playEpisode(Map<String, dynamic> episode) {
-    print("Playing: ${episode['title']}");
+    debugPrint("Playing: ${episode['title']}");
   }
 
 

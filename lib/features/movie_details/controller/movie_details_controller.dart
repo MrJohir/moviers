@@ -49,12 +49,8 @@ class MovieDetailsController extends GetxController {
     isDescriptionExpanded.value = !isDescriptionExpanded.value;
   }
 
-
-  var selectedPlan = 'annually'.obs; // 'annually' or 'monthly'
-
-  // Select plan method
+  var selectedPlan = 'annually'.obs;
   void selectPlan(String plan) {
     selectedPlan.value = plan;
   }
-
 }

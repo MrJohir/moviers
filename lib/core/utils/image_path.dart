@@ -2,7 +2,7 @@ class ImagePath {
   static const String _imageBaseUrl = 'assets/images';
 
   static const String splash = "$_imageBaseUrl/Splash.png";
-  // static const String onBoardingImage = "$_imageBaseUrl/image.svg";
+  static const String onboarding = "$_imageBaseUrl/onboading.png";
   static const String appleLogo = '$_imageBaseUrl/Apple.svg';
   static const String googleLogo = '$_imageBaseUrl/Google.svg';
   static const String index1 = '$_imageBaseUrl/index1.png';

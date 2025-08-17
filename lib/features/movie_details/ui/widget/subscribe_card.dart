@@ -1,21 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
-
 import '../../../movie_details/controller/movie_details_controller.dart';
 
 class SubscribeCard extends StatelessWidget {
-  const SubscribeCard({
-    super.key,
-    required this.controller,
-  });
+  const SubscribeCard({super.key, required this.controller});
 
   final MovieDetailsController controller;
 
   @override
   Widget build(BuildContext context) {
     return Obx(
-          () => Padding(
-        padding: const EdgeInsets.only(top: 40,bottom: 40),
+      () => Padding(
+        padding: const EdgeInsets.only(top: 40, bottom: 40),
         child: Row(
           children: [
             // Annually button
@@ -26,11 +22,10 @@ class SubscribeCard extends StatelessWidget {
                   padding: EdgeInsets.all(16),
                   decoration: BoxDecoration(
                     color:
-                    controller.selectedPlan.value == 'annually'
-                        ? Color(0xff2196F3)
-                        : Color(0xff2A2A2A),
+                        controller.selectedPlan.value == 'annually'
+                            ? Color(0xff2196F3)
+                            : Color(0xff2A2A2A),
                     borderRadius: BorderRadius.circular(8),
-
                   ),
                   child: Column(
                     children: [
@@ -43,7 +38,7 @@ class SubscribeCard extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 16,bottom: 6),
+                        padding: const EdgeInsets.only(top: 16, bottom: 6),
                         child: Text(
                           '\$79.99 / year',
                           style: TextStyle(
@@ -77,17 +72,14 @@ class SubscribeCard extends StatelessWidget {
                   padding: EdgeInsets.all(16),
                   decoration: BoxDecoration(
                     color:
-                    controller.selectedPlan.value == 'monthly'
-                        ? Color(0xff2196F3)
-                        : Color(0xff2A2A2A),
+                        controller.selectedPlan.value == 'monthly'
+                            ? Color(0xff2196F3)
+                            : Color(0xff2A2A2A),
                     borderRadius: BorderRadius.circular(8),
                     border:
-                    controller.selectedPlan.value == 'monthly'
-                        ? Border.all(
-                      color: Color(0xff2196F3),
-                      width: 2,
-                    )
-                        : null,
+                        controller.selectedPlan.value == 'monthly'
+                            ? Border.all(color: Color(0xff2196F3), width: 2)
+                            : null,
                   ),
                   child: Column(
                     children: [

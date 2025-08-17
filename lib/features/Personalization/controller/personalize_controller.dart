@@ -2,7 +2,6 @@ import 'package:get/get.dart';
 import 'package:moviers/core/utils/image_path.dart';
 
 class PersonalizeController extends GetxController {
-
   List gridViewItem = [
     ImagePath.index1,
     ImagePath.index2,
@@ -11,7 +10,6 @@ class PersonalizeController extends GetxController {
     ImagePath.index1,
     ImagePath.index2,
   ];
-
 
   RxList<bool> selectedItems = <bool>[].obs;
 
@@ -24,5 +22,4 @@ class PersonalizeController extends GetxController {
   void toggleSelection(int index) {
     selectedItems[index] = !selectedItems[index];
   }
-
 }

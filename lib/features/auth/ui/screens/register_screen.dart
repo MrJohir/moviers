@@ -1,10 +1,8 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:moviers/features/auth/controller/auth_controller.dart';
 import 'package:moviers/features/auth/ui/widget/auth_appbar.dart';
 import 'package:moviers/features/auth/ui/widget/coustomar_textField.dart';
-
 import '../../../../core/utils/image_path.dart';
 import '../widget/coustom_button.dart';
 import '../widget/terms_condition.dart';

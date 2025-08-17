@@ -7,7 +7,6 @@ class PopularStar extends StatelessWidget {
   });
 
   final Map<String, String> actor;
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(

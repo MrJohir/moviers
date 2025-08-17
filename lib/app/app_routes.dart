@@ -16,7 +16,7 @@ class AppRoute {
 
   static List<GetPage> routes =[
     GetPage(name: splashScreens, page: ()=> Splashscreen()),
-    GetPage(name: onBoardingOne, page: ()=> OnBoardingOne()),
+    // GetPage(name: onBoardingOne, page: ()=> OnBoardingOne()),
     GetPage(name: loginScreen, page: ()=> LoginScreen()),
   ];
 }

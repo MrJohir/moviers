@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../core/utils/image_path.dart';
 import '../ui/screens/on_boarding_one.dart';
 
 class AuthController extends GetxController {
@@ -23,9 +24,8 @@ class AuthController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    // moveNextScreen();
+    moveNextScreen();
     pageController = PageController();
-    // startAutoPlay();
 
   }
   void onEmailChanged(String value) {
@@ -46,54 +46,20 @@ class AuthController extends GetxController {
   }
 
 
-  void startAutoPlay() {
-    Future.delayed(Duration(seconds: 5), () {
-      if (currentPage.value < 1) {
-        currentPage.value++;
-      } else {
-        currentPage.value = 0;
-      }
-      pageController.animateToPage(
-        currentPage.value,
-        duration: Duration(milliseconds: 500),
-        curve: Curves.easeInOut,
-      );
-      // startAutoPlay();
-    });
-  }
+  final List movieData = [
 
-  final List<Map<String, dynamic>> movieData = [
-    // {
-    //   'type': 'asset',
-    //   'image': ImagePath.onBoardingImage,
-    //   'title': 'Splash Movie'
-    // },
-    {
-      'image':
-      'https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?w=300&h=400&fit=crop',
-      'title': 'Doctor Strange',
-    },
-
+    ImagePath.onboarding,
+    ImagePath.onboarding,
   ];
 
   void onPageChanged(int page) {
     currentPage.value = page;
   }
 
-  // void skipIntro() {
-  //   Get.snackbar(
-  //     'Navigation',
-  //     'Going to main app...',
-  //     backgroundColor: Colors.blue.withOpacity(0.8),
-  //     colorText: Colors.white,
-  //   );
-  // }
-
-  // @override
-  // void onClose() {
-  //   pageController.dispose();
-  //   super.onClose();
-  // }
-
+  @override
+  void onClose() {
+    pageController.dispose();
+    super.onClose();
+  }
 
 }

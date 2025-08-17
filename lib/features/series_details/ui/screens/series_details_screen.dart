@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:moviers/core/utils/image_path.dart';
-
 import '../../controller/series_details_controller.dart';
+import '../widget/movie_season.dart';
+import '../widget/movie_series_item.dart';
 
 class SeriesDetailsScreen extends StatelessWidget {
   SeriesDetailsScreen({super.key});
@@ -165,12 +166,11 @@ class SeriesDetailsScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Season header
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Season 2',
+                        'Season 1',
                         style: TextStyle(
                           color: Color(0xffFFFFFF),
                           fontSize: 16,
@@ -178,7 +178,7 @@ class SeriesDetailsScreen extends StatelessWidget {
                         ),
                       ),
                       GestureDetector(
-                        onTap: (){
+                        onTap: () {
                           showEpisodesBottomSheet();
                         },
                         child: Text(
@@ -193,191 +193,7 @@ class SeriesDetailsScreen extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 16),
-                  SizedBox(
-                    height: 220,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: controller.season2Episodes.length,
-                      itemBuilder: (context, index) {
-                        final episode = controller.season2Episodes[index];
-                        return Container(
-                          width: 280,
-                          margin: EdgeInsets.only(right: 10),
-                          child: GestureDetector(
-                            onTap: () => controller.playEpisode(episode),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  height: 160,
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(4),
-                                  ),
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(8),
-                                    child: Stack(
-                                      children: [
-                                        Image.network(
-                                          episode['thumbnail'],
-                                          width: double.infinity,
-                                          height: double.infinity,
-                                          fit: BoxFit.cover,
-                                          errorBuilder: (
-                                            context,
-                                            error,
-                                            stackTrace,
-                                          ) {
-                                            return Container(
-                                              color: Color(0xff1A1A1A),
-                                              child: Center(
-                                                child: Icon(
-                                                  Icons.play_circle_outline,
-                                                  size: 40,
-                                                  color: Color(0xff666666),
-                                                ),
-                                              ),
-                                            );
-                                          },
-                                        ),
-                                        Container(
-                                          decoration: BoxDecoration(
-                                            gradient: LinearGradient(
-                                              begin: Alignment.topCenter,
-                                              end: Alignment.bottomCenter,
-                                              colors: [
-                                                Colors.transparent,
-                                                Colors.black.withValues(
-                                                  alpha: 0.3,
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                        Center(
-                                          child: Container(
-                                            width: 50,
-                                            height: 50,
-                                            decoration: BoxDecoration(
-                                              color: Colors.black.withValues(
-                                                alpha: 0.6,
-                                              ),
-                                              shape: BoxShape.circle,
-                                            ),
-                                            child: Icon(
-                                              Icons.play_arrow,
-                                              color: Colors.white,
-                                              size: 30,
-                                            ),
-                                          ),
-                                        ),
-                                        Positioned(
-                                          bottom: 8,
-                                          right: 8,
-                                          child: Container(
-                                            padding: EdgeInsets.symmetric(
-                                              horizontal: 6,
-                                              vertical: 2,
-                                            ),
-                                            decoration: BoxDecoration(
-                                              color: Colors.black.withValues(
-                                                alpha: 0.8,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(4),
-                                            ),
-                                            child: Text(
-                                              episode['duration'],
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 10,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 12),
-                                  child: Text(
-                                    episode['title'],
-                                    style: TextStyle(
-                                      color: Color(0xffC2C2C2),
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-
-                  //
-                  // Row(
-                  //   children: [
-                  //     Expanded(
-                  //       flex: 8,
-                  //       child: ElevatedButton.icon(
-                  //         onPressed: controller.continueWatching,
-                  //         style: ElevatedButton.styleFrom(
-                  //           backgroundColor: Color(0xff2196F3),
-                  //           padding: EdgeInsets.symmetric(vertical: 16),
-                  //           shape: RoundedRectangleBorder(
-                  //             borderRadius: BorderRadius.circular(8),
-                  //           ),
-                  //         ),
-                  //         icon: Icon(
-                  //           Icons.play_arrow,
-                  //           color: Colors.white,
-                  //           size: 20,
-                  //         ),
-                  //         label: Text(
-                  //           'Continue Watch ${controller.currentEpisode.value}',
-                  //           style: TextStyle(
-                  //             color: Colors.white,
-                  //             fontSize: 16,
-                  //             fontWeight: FontWeight.w600,
-                  //           ),
-                  //         ),
-                  //       ),
-                  //     ),
-                  //     SizedBox(width: 16),
-                  //     Expanded(
-                  //       flex: 1,
-                  //       child: Obx(
-                  //             () => GestureDetector(
-                  //           // onTap: controller.onBookmarkPressed,
-                  //           child: Container(
-                  //             padding: EdgeInsets.all(12),
-                  //             decoration: BoxDecoration(
-                  //               color: Color(0xff1A1A1A),
-                  //               borderRadius: BorderRadius.circular(8),
-                  //               border: Border.all(color: Color(0xff333333), width: 1),
-                  //             ),
-                  //             // child: Icon(
-                  //             //   controller.isBookmarked.value
-                  //             //       ? Icons.bookmark
-                  //             //       : Icons.bookmark_border,
-                  //             //   color:
-                  //             //   controller.isBookmarked.value
-                  //             //       ? Color(0xff298CFF)
-                  //             //       : Color(0xffC2C2C2),
-                  //             //   size: 24,
-                  //             // ),
-                  //           ),
-                  //         ),
-                  //       ),
-                  //     ),
-                  //   ],
-                  // ),
+                  MovieSeriesItem(controller: controller),
                   Obx(
                     () => SizedBox(
                       width: double.infinity,
@@ -407,34 +223,6 @@ class SeriesDetailsScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 12),
-                  //
-                  // // Add to watchlist button
-                  // SizedBox(
-                  //   width: double.infinity,
-                  //   child: OutlinedButton.icon(
-                  //     onPressed: controller.addToWatchlist,
-                  //     style: OutlinedButton.styleFrom(
-                  //       side: BorderSide(color: Color(0xff666666)),
-                  //       padding: EdgeInsets.symmetric(vertical: 16),
-                  //       shape: RoundedRectangleBorder(
-                  //         borderRadius: BorderRadius.circular(8),
-                  //       ),
-                  //     ),
-                  //     icon: Icon(
-                  //       Icons.bookmark_border,
-                  //       color: Colors.white,
-                  //       size: 20,
-                  //     ),
-                  //     label: Text(
-                  //       'Add to Watchlist',
-                  //       style: TextStyle(
-                  //         color: Colors.white,
-                  //         fontSize: 16,
-                  //         fontWeight: FontWeight.w600,
-                  //       ),
-                  //     ),
-                  //   ),
-                  // ),
                 ],
               ),
             ),
@@ -455,138 +243,7 @@ class SeriesDetailsScreen extends StatelessWidget {
             topRight: Radius.circular(20),
           ),
         ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24,vertical: 24),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'The Mandalorian',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 16,bottom: 10),
-                child: Text(
-                  'Season 1',
-                  style: TextStyle(
-                    color: Color(0xffB0B0B0),
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-              Expanded(
-                child: ListView.builder(
-                  itemCount:controller. season1Episodes.length,
-                  itemBuilder: (context, index) {
-                    final episode = controller. season1Episodes[index];
-                    return GestureDetector(
-                      // onTap: () => playEpisode(episode),
-                      child: Padding(
-                        padding: const EdgeInsets.only(bottom: 16),
-                        child: Row(
-                          children: [
-                            Container(
-                              width: 142,
-                              height: 82,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8),
-                                color: Color(0xff2A2A2A),
-                              ),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8),
-                                child: Stack(
-                                  children: [
-                                    Image.network(
-                                      episode['thumbnail'],
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.cover,
-                                      errorBuilder: (context, error, stackTrace) {
-                                        return Container(
-                                          color: Color(0xff2A2A2A),
-                                          child: Center(
-                                            child: Icon(
-                                              Icons.play_circle_outline,
-                                              size: 30,
-                                              color: Color(0xff666666),
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                    ),
-                                    Container(
-                                      decoration: BoxDecoration(
-                                        gradient: LinearGradient(
-                                          begin: Alignment.topCenter,
-                                          end: Alignment.bottomCenter,
-                                          colors: [
-                                            Colors.transparent,
-                                            Colors.black.withValues(alpha: 0.3),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                    Center(
-                                      child: Container(
-                                        width: 35,
-                                        height: 35,
-                                        decoration: BoxDecoration(
-                                          color: Colors.black.withValues(alpha: 0.6),
-                                          shape: BoxShape.circle,
-                                        ),
-                                        child: Icon(
-                                          Icons.play_arrow,
-                                          color: Colors.white,
-                                          size: 20,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-
-                            SizedBox(width: 16),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    episode['title'],
-                                    style: TextStyle(
-                                      color: Color(0xffFFFFFF),
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                  // SizedBox(height: 4),
-                                  // Text(
-                                  //   episode['duration'],
-                                  //   style: TextStyle(
-                                  //     color: Color(0xffB0B0B0),
-                                  //     fontSize: 14,
-                                  //   ),
-                                  // ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                ),
-              ),
-            ],
-          ),
-        ),
+        child: MovieSeason(controller: controller),
       ),
       isScrollControlled: true,
       isDismissible: true,
